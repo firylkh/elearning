@@ -14,7 +14,7 @@ return new class extends Migration
         Schema::create('courses', function (Blueprint $table) {
             $table->id();
             $table->string('name');
-            $table->enum('category',['Basis Data','Pemograman Web', 'B.Inggris']);
+            $table->varchar('category',['Pemograman Web 2','Basis Data', 'Bahasa Inggris', 'UI/UX', 'Statistika & Probabilitas', 'PPKN', 'Jaringan Komputer', 'Komunikasi Efektif']);
             $table->string('desc');
             $table->timestamps();
         });

@@ -14,6 +14,7 @@
   <section class="section">
     <div class="card">
         <div class="card-body">
+          <a href="/admin/course/create" class="btn btn-primary my-2">+ Course</a>
             <table class="table">
                 <tr>
                     <th>No</th>
@@ -25,13 +26,17 @@
                 @foreach($courses as $courses)
                     <tr>
                         <td>1</td>
-                        <td>{{$courses->Name }}</td>
-                        <td>{{$courses->Category }}</td>
-                        <td>{{$courses->Desc }}</td>
-                        <td>{{$courses->Action }}</td>
+                        <td>{{$courses->name }}</td>
+                        <td>{{$courses->category }}</td>
+                        <td>{{$courses->desc }}</td>
                         <td>
-                            <a href="#" class="btn btn-warning">Edit</a>
-                            <a href="#" class="btn btn-danger">Delete</a>
+                          <a href="/admin/courses/edit/{{ $courses->id }}" class="btn btn-warning me-2">Edit</a>
+                          <form action="/admin/courses/delete/{{ $courses->id }}" method="post">
+                              @method('DELETE')
+                              @csrf
+                              <button class="btn btn-danger" type="submit" onclick="return confirm('Apakah Anda yakin?')">Hapus</button>
+                          
+                          </form>
                         </td>
                     </tr>
                 @endforeach
